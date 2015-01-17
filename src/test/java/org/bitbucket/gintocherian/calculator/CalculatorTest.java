@@ -6,10 +6,12 @@ import junit.framework.TestCase;
 
 public class CalculatorTest extends TestCase {
 
-	public void testTest() {
+	/*
+	 * Add two numbers
+	 */
+	public void testAdd() {
 		Calculator current = new Calculator();
-        BasicConfigurator.configure();
-        assertEquals(0, current.test());
+        assertEquals(0, current.evaluateArithematicExpression(Calculator.Operator.ADD, 0, 0));
 	}
 
 }

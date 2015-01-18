@@ -1,7 +1,5 @@
 package org.bitbucket.gintocherian.calculator;
 
-import org.apache.log4j.BasicConfigurator;
-
 import junit.framework.TestCase;
 
 public class CalculatorTest extends TestCase {
@@ -44,5 +42,35 @@ public class CalculatorTest extends TestCase {
 		current.setOperands("2,27".toCharArray());
 		assertEquals("2", current.operandA);
 		assertEquals("27", current.operandB);
+	}
+
+	public void testPartitioningThreeOperands(){
+		LetOperands current = new LetOperands();
+		current.setOperands("a,27,div(a,3)".toCharArray());
+		assertEquals("a", current.operandA);
+		assertEquals("27", current.operandB);
+		assertEquals("div(a,3)", current.operandC);
+	}
+
+	public void testIncorrectLetVariable(){
+		LetOperands current = new LetOperands();
+		try {
+			current.setOperands("27,27,div(a,3)".toCharArray());
+			fail( "Missing exception" );
+		} catch( SyntaxException e ) {
+		     assertEquals( "Variable of let operation should be in a..z and A..Z", e.getMessage() );
+		}
+	}
+
+	public void testSingleLetStatements(){
+    	Calculator current = new Calculator();
+		assertEquals(new Long(10), current.expressionParser("let(a, 5, add(a, a))"));
+	}
+
+	public void testNestedLetStatements(){
+    	Calculator current = new Calculator();
+		assertEquals(new Long(55), current.expressionParser("let(a, 5, let(b, mult(a, 10), add(b, a)))"));
+		assertEquals(new Long(40), current.expressionParser("let(a, let(b, 10, add(b, b)), let(b, 20, add(a, b)))"));
+		assertEquals(new Long(15), current.expressionParser("add(5, let(a, 5, add(a, a)))"));
 	}
 }

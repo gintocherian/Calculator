@@ -2,4 +2,5 @@ Calculator Program
 =====================
 Implementation of Calculator program
 
-Build Requirements: Needs minimum JDK 1.7
+Main Program: Calculator
+Run from command line: 

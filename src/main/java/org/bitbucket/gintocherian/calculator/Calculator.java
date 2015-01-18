@@ -48,6 +48,12 @@ public class Calculator {
 	/*
 	 * Main function for the recursive call
 	 * 
+	 * 	LET Operator:
+	 * 		Evaluates the value expression, recurses if necessary
+	 * 		Replaces the variable in the expression with the computed value
+	 * 		calls the expressionEvaluator for the transformed expression
+	 * 		i.e. let(a, 5, add(a, a)) => add(5, 5)   
+	 * 
 	 *  Other Operators: ADD, DIV, SUB, MULT
 	 *  	Evaluates left expression, recurses if necessary 
 	 *  	Evaluates right expression, recurses if necessary 
@@ -60,7 +66,11 @@ public class Calculator {
 
 		if(parent==Operator.LET)
 		{
-			return 0;
+			LetOperands theOperands = new LetOperands();
+			theOperands.setOperands(expression);
+			theOperands.setOperandB(Long.toString(evaluateOperand(theOperands.getOperandB())));
+			theOperands.refactorExpression();
+			return callExpressionEvaluator(theOperands.getOperandC());			
 		}
 		else
 		{

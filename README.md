@@ -27,19 +27,35 @@ Experience Report
 This is really an interesting problem, it reads simpler that it is,  
 
 Issues I encountered,
-	1) I initially spend a little time to see if I could use an open source Java parser to solve the parsing but it was evident that I could probably take more time in evaluating options than for the actual coding. 	
-	2) In whiteboarding the solution the let operator added a level of complexity. 
-	3) It had been some time since I used log4j, and I had a couple of issues with messages getting repeated. 
-	4) Cloudbees Jenkins server seems to use a JDK version below 1.7 even though I specified it in their configuration. So has to change my statement for "switch(string)" to an 	if....else if...else construct. I had other issues as well regarding granting public access. This was my first time using Jenkins, I spend more time on it that I bargained for.
-	5) The last sample in the problem statement was missing a brace.
+
+1) I initially spend a little time to see if I could use an open source Java parser to solve the parsing but it was evident that I could probably take more time in evaluating options than for the actual coding.
+	 	
+2) In whiteboarding the solution the let operator added a level of complexity.
+	 
+3) It had been some time since I used log4j, and I had a couple of issues with messages getting repeated.
+	 
+4) Cloudbees Jenkins server seems to use a JDK version below 1.7 even though I specified it in their configuration. So has to change my statement for "switch(string)" to an 	if....else if...else construct. I had other issues as well regarding granting public access. This was my first time using Jenkins, I spend more time on it that I bargained for.
+	
+5) The last sample in the problem statement was missing a brace.
+
+
 
 Things that I could have improved,
-	1) Too many strings are passed back and forth in my solution. This can be reduced by creating an expression tree(with two types of nodes i.e one for let and another for the other operators) and evaluating expressions on it starting from the leaves	
-	2) This recursive solution, in cases of very large expressions, could possibly cause the call stack to exceed memory limit. A non-recursive solution will be more scalable
- 	3) A configurable way to add new operations and delimiters. Currently this is hard coded.
- 	4) Currently I am checking syntax correctness(there could be more cases to cover) just before evaluation of a sub-expression. A method like given in point 1 could do the syntax checking as	the tree is being built. 
- 	5) Better code styling and commenting by using a specific standard, currently I've commented what I thought is necessary
+
+1) Too many strings are passed back and forth in my solution. This can be reduced by creating an expression tree(with two types of nodes i.e one for let and another for the other operators) and evaluating expressions on it starting from the leaves
+		
+2) This recursive solution, in cases of very large expressions, could possibly cause the call stack to exceed memory limit. A non-recursive solution will be more scalable
+
+3) A configurable way to add new operations and delimiters. Currently this is hard coded.
+ 	
+4) Currently I am checking syntax correctness(there could be more cases to cover) just before evaluation of a sub-expression. A method like given in point 1 could do the syntax checking as	the tree is being built.
+ 
+5) Better code styling and commenting by using a specific standard, currently I've commented what I thought is necessary
+
+
 
 How I spend my time(6 hrs),
-	1) Core logic - 3-4 hrs
-	2) Setup mainly time on the Jenkins server - 2 hrs  	
+
+1) Core logic - 3-4 hrs
+
+2) Setup mainly time on the Jenkins server - 2 hrs  	

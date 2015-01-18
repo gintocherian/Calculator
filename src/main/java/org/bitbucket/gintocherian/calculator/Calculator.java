@@ -162,15 +162,18 @@ public class Calculator {
 	*/
 	private Operator getOperator(String value)
 	{
-		switch(value)
-		{
-		case "add" : return Operator.ADD;
-		case "sub" : return Operator.SUB;
-		case "mult" : return Operator.MULT;
-		case "div" : return Operator.DIV;
-		case "let" : return Operator.LET;
-		}
-		throw new SyntaxException("Unrecognized operator : " + value);
+		if(value.equals("add"))
+			return Operator.ADD;
+		else if (value.equals("sub"))
+			return Operator.SUB;
+		else if (value.equals("mult"))
+			return Operator.MULT;
+		else if (value.equals("div"))
+			return Operator.DIV;
+		else if (value.equals("let"))
+			return Operator.LET;
+		else
+			throw new SyntaxException("Unrecognized operator : " + value);
 	}
 	
 	/*

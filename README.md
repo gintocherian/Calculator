@@ -3,30 +3,20 @@ Calculator Program
 Implementation of Calculator program using Eclipse, Java 1.7, Maven, Junit 3, log4j, git and Jenkins
 
 Main Program: Calculator.java
+
 Run from command line(note jar file will have to be compiled): java -jar Calculator.jar "add(2, 2)"
+
 Note I built it in eclipse: So in eclipse the file Calculator.java can be run with the parameter "add(2, 2)"
 
 
 Logic: A recursive expression evaluator. If traverses to the smallest sub-expression that can be evaluated and then uses that value to solve the parent expression till it solves the full expression.
-eg:  1) add(1    ,    2)
-            1    +    3
-                 3
-     2) add(1,      mult(2   ,    3))
-                         2   *    3
-            1     +          6
-                  7
-     3)let(a,               5,            let(b, mult(a, 10), add(b, a)))            
-           a				5			  let(b, mult(5, 10), add(b, 5))            -- Replaced a
-           								  let(b, 50, add(b, 5))						-- calculated multiply
-           								  let(b, 50, add(50, 5))					-- replaced b
-           											55								-- calculated add	
 
 Experience Report
 =====================
 
 This is really an interesting problem, it reads simpler that it is,  
 
-Issues I encountered,
+## Issues I encountered,
 
 1) I initially spend a little time to see if I could use an open source Java parser to solve the parsing but it was evident that I could probably take more time in evaluating options than for the actual coding.
 	 	
@@ -40,7 +30,7 @@ Issues I encountered,
 
 
 
-Things that I could have improved,
+## Things that I could have improved,
 
 1) Too many strings are passed back and forth in my solution. This can be reduced by creating an expression tree(with two types of nodes i.e one for let and another for the other operators) and evaluating expressions on it starting from the leaves
 		
@@ -54,7 +44,7 @@ Things that I could have improved,
 
 
 
-How I spend my time(6 hrs),
+## How I spend my time(6 hrs),
 
 1) Core logic - 3-4 hrs
 
